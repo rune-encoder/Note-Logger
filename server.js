@@ -23,15 +23,15 @@ app.use(express.static("public"));
 // Send all the requests that begin with /api to the index.js in the routes folder. Example: /api
 app.use("/api", api);
 
-// This view route is a GET route to the main page: index.html
-app.get("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "./public/index.html"))
-);
-
 // This view route is a GET route to the "Note Taking" page: notes.html
 app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "./public/notes.html"))
 );
+
+// This view route is a GET route to the main page: index.html
+// app.get("*", (req, res) =>
+//   res.sendFile(path.join(__dirname, "./public/index.html"))
+// );
 
 // Used to bind and listen to the connections on the specified host and port. 
 app.listen(PORT, () =>
