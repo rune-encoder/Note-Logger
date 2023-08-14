@@ -2,14 +2,11 @@
 const notes = require("express").Router();
 
 // Helper functions for reading and creating Notes JSON file.
-const {
-  readFilePromise,
-  readAppendPromise,
-} = require("../helpers/fsPromises");
+const { readFilePromise, readAppendPromise } = require("../helpers/fsPromises");
 
 // GET route for retrieving all the notes. Path: /api/notes
 notes.get("/", (req, res) => {
-  console.info(`${req.method} request received for notes API!`);
+  console.info(`\n${req.method} request received!`);
   readFilePromise("./db/notes.json")
     .then((data) => res.json(JSON.parse(data)))
     .catch((error) => {
@@ -19,7 +16,7 @@ notes.get("/", (req, res) => {
 
 // POST route for subbmitting new notes. Path: /api/notes
 notes.post("/", (req, res) => {
-  console.info(`${req.method} request received for notes API!`);
+  console.info(`\n${req.method} request received!`);
 
   // Destructuring data we are sending in our body. (Note Title / Note Text)
   const { title, text } = req.body;
@@ -32,7 +29,7 @@ notes.post("/", (req, res) => {
     };
 
     // Use our helper function created in fsPromises.js
-    // Promise will read, parse and then create a new updated file. 
+    // Promise will read, parse and then create a new updated file.
     readAppendPromise(newNote, "./db/notes.json");
 
     const response = {
@@ -40,14 +37,14 @@ notes.post("/", (req, res) => {
       body: newNote,
     };
 
-    // Will log our successful response in the terminal. 
+    // Will log our successful response in the terminal.
     console.log(response);
 
     // Sets the HTTP status for the response.
     // 201 indicates the server has successfully processed the request.
     res.status(201).json(response);
   } else {
-    res.status(404).json("Error in posting note.");
+    res.status(404).json("\nError in posting note.");
   }
 });
 

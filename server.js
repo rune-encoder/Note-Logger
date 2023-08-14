@@ -7,7 +7,7 @@ const path = require("path");
 // Import the notes router.
 const api = require("./routes/index");
 
-// Specify on which port the Express.js server will run. 
+// Specify on which port the Express.js server will run.
 const PORT = process.env.PORT || 3001;
 
 // Initialize instance of Express.js
@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Static middleware pointing to the public folder. 
+// Static middleware pointing to the public folder.
 app.use(express.static("public"));
 
 // Send all the requests that begin with /api to the index.js in the routes folder. Example: /api
@@ -29,11 +29,11 @@ app.get("/notes", (req, res) =>
 );
 
 // This view route is a GET route to the main page: index.html
-// app.get("*", (req, res) =>
-//   res.sendFile(path.join(__dirname, "./public/index.html"))
-// );
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "./public/index.html"))
+);
 
-// Used to bind and listen to the connections on the specified host and port. 
+// Used to bind and listen to the connections on the specified host and port.
 app.listen(PORT, () =>
-console.log(`App is listening at http://localhost:${PORT}`)
+  console.log(`App is listening at http://localhost:${PORT}`)
 );
