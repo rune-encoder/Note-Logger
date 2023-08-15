@@ -14,7 +14,8 @@ const readFilePromise = util.promisify(fs.readFile);
  *  @param {string} filePath - Name of file we want to create.
  *  @returns {void} - Returns Nothing.
  */
-const writeFilePromise = (filePath, newParsedData) =>
+
+const writeFile = (filePath, newParsedData) =>
   fs.writeFile(filePath, JSON.stringify(newParsedData, null, 4), (err) =>
     err
       ? console.error(err)
@@ -28,16 +29,33 @@ const writeFilePromise = (filePath, newParsedData) =>
  *  @param {object} newNote - Newly created note we want to append to the notes.json file.
  *  @returns {void} - Returns Nothing.
  */
-const readAppendPromise = (newNote, file) => {
+
+const deleteFile = (newNote, file) => {
+  fs.readFile(file, "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const parsedData = JSON.parse(data);
+      for (let i = 0; i < parsedData.length; i++) {
+        if (parsedData[i].id === newNote.id) {
+          parsedData.splice([i], 1);
+          writeFile(file, parsedData);
+        }
+      }
+    }
+  });
+};
+
+const readAndWrite = (newNote, file) => {
   fs.readFile(file, "utf8", (err, data) => {
     if (err) {
       console.error(err);
     } else {
       const parsedData = JSON.parse(data);
       parsedData.push(newNote);
-      writeFilePromise(file, parsedData);
+      writeFile(file, parsedData);
     }
   });
 };
 
-module.exports = { readFilePromise, writeFilePromise, readAppendPromise };
+module.exports = { readFilePromise, writeFile, readAndWrite, deleteFile };
