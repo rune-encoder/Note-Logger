@@ -2,10 +2,14 @@
 const notes = require("express").Router();
 
 // Access to functions in crypto module.
-const crypto = require('crypto');
+const crypto = require("crypto");
 
 // Helper functions for reading and creating Notes JSON file.
-const { readFilePromise, readAppendPromise } = require("../helpers/fsPromises");
+const {
+  readFilePromise,
+  readAndWrite,
+  deleteFile,
+} = require("../helpers/fsPromises");
 
 // GET route for retrieving all the notes. Path: /api/notes
 notes.get("/", (req, res) => {
@@ -30,12 +34,12 @@ notes.post("/", (req, res) => {
     const newNote = {
       title,
       text,
-      id: crypto.randomUUID()
+      id: crypto.randomUUID(),
     };
 
     // Use our helper function created in fsPromises.js
     // Promise will read, parse and then create a new updated file.
-    readAppendPromise(newNote, "./db/notes.json");
+    readAndWrite(newNote, "./db/notes.json");
 
     const response = {
       status: "success",
@@ -51,6 +55,12 @@ notes.post("/", (req, res) => {
   } else {
     res.status(404).json("\nError in posting note.");
   }
+});
+
+notes.delete("/:id", (req, res) => {
+  console.info(`\n${req.method} request received!`);
+  deleteFile(req.params, "./db/notes.json");
+  res.json(true);
 });
 
 module.exports = notes;
