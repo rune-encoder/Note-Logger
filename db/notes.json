@@ -1,14 +1,12 @@
 [
     {
         "title": "Test Title",
-        "text": "Test text"
+        "text": "Test text",
+        "id": "e9354425-3706-410b-bfab-f3b11727de01"
     },
     {
-        "title": "fsdgsdfg",
-        "text": "sdfgsdff"
-    },
-    {
-        "title": "sdfgsdfgsdf",
-        "text": "sdfgsdfg"
+        "title": "Test Title 2",
+        "text": "Test text 2",
+        "id": "5f944141-2302-4f4b-b26e-41fb442560f4"
     }
 ]

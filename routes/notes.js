@@ -1,6 +1,9 @@
 // Creates router object to handle requests for /api/notes.
 const notes = require("express").Router();
 
+// Access to functions in crypto module.
+const crypto = require('crypto');
+
 // Helper functions for reading and creating Notes JSON file.
 const { readFilePromise, readAppendPromise } = require("../helpers/fsPromises");
 
@@ -22,10 +25,12 @@ notes.post("/", (req, res) => {
   const { title, text } = req.body;
 
   // Save new object for our note if all properties are present.
+  // Use crypto.randomUUID() method to geneerate UUID using secure random number generator.
   if (title && text) {
     const newNote = {
       title,
       text,
+      id: crypto.randomUUID()
     };
 
     // Use our helper function created in fsPromises.js
