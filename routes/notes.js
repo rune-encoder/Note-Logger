@@ -61,7 +61,7 @@ notes.post("/", (req, res) => {
 notes.delete("/:id", (req, res) => {
   console.info(`\n${req.method} request received!`);
   deleteFile(req.params, "./db/notes.json");
-  res.json(true);
+  res.status(201).json('Delete Request Successful!');
 });
 
 module.exports = notes;
