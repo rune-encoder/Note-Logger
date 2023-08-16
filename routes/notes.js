@@ -57,6 +57,7 @@ notes.post("/", (req, res) => {
   }
 });
 
+// DELETE route for removing existing notes. Path: /api/notes/:id
 notes.delete("/:id", (req, res) => {
   console.info(`\n${req.method} request received!`);
   deleteFile(req.params, "./db/notes.json");

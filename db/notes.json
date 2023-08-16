@@ -1,17 +1,17 @@
 [
     {
-        "title": "gasdgasdgasdgasd",
-        "text": "gasgasdgasdgasdgasd",
-        "id": "3e333c04-125f-4abd-adf4-9221c464a969"
+        "title": "Getting Started",
+        "text": "To add a new note: \n1. Type in the title and the text of the document.\n2. Click on the save icon on the top left corner. ",
+        "id": "3250a094-3ff1-4e55-b7d4-d21a890abe06"
     },
     {
-        "title": "asfgfdasgfdsgfds",
-        "text": "gsdfgasdg",
-        "id": "7dbe3159-e300-4498-8bf1-2631e344f5f8"
+        "title": "Display Saved Notes",
+        "text": "To display saved notes click on the note on the left side of the screen. When clicked, the note will display on the main screen. \n\nTo go back and make a new note press on the + icon on the top right corner of the screen. ",
+        "id": "0376a436-9d25-4981-9897-219fb6fc5a05"
     },
     {
-        "title": "gfdsgfdsgsfd",
-        "text": "sdfgsdfgdfs",
-        "id": "20e03bb2-f474-4e9a-9ef8-77a2cfe89ee1"
+        "title": "Delete Notes",
+        "text": "To delete notes simply click on the delete icon next to the note you wish to delete. ",
+        "id": "e2e12661-e19e-4e55-a4aa-799acf699f8d"
     }
 ]

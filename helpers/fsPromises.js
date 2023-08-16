@@ -30,6 +30,7 @@ const writeFile = (filePath, newParsedData) =>
  *  @returns {void} - Returns Nothing.
  */
 
+// Helper function to delete data from notes.json and recreate an updated file with data removed. 
 const deleteFile = (newNote, file) => {
   fs.readFile(file, "utf8", (err, data) => {
     if (err) {
@@ -46,6 +47,7 @@ const deleteFile = (newNote, file) => {
   });
 };
 
+// Helper function to read file and append new information to recreate (write) new updated file. 
 const readAndWrite = (newNote, file) => {
   fs.readFile(file, "utf8", (err, data) => {
     if (err) {
