@@ -22,18 +22,26 @@ body {
   width: 100%;
   outline: none;
   border: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.note-title:hover,
+.note-textarea:hover {
+  background-color: rgb(252, 250, 252);
 }
 
 .note-textarea {
   resize: none;
   height: calc(100% - 63px);
   padding-top: 15px;
+  font-size: 1.5rem;
 }
 
 .note-title {
   height: 50px;
   margin-top: 13px;
   font-size: 3rem;
+  padding-bottom: 10px;
 }
 
 .note-title:read-only,
@@ -75,4 +83,94 @@ body {
   border-right: none;
   padding: 20px;
   cursor: pointer;
+}
+
+.list-group-item {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+  0px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+/* .list-group-item:hover {
+  font-weight: bold;
+  color: #b465da;
+  margin-left: 10px;
+  transition: all 150ms linear;
+} */
+
+.list-item-title {
+  color: black;
+  transition: all 0.2s ease-out;
+}
+
+.list-item-title:hover {
+  font-weight: bold;
+  color: #b465da;
+  margin-left: 10px;
+  transition: all 150ms linear;
+}
+
+.list-item-title:active {
+  color: #ff00ea;
+}
+
+.navbar {
+  background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+  font-family: 'Ysabeau SC', sans-serif;
+}
+
+.main-textarea {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  box-shadow: 0px 1px 30px 1px #00000052;
+}
+
+.btn-custom {
+  font-family: 'Roboto', sans-serif;
+  width: 20%;
+  border: none;
+  background: #9733ee;
+  background: linear-gradient(to right, #da22ff, #9733ee);
+  opacity: 75%;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.6s ease-out;
+}
+
+.btn-custom:hover {
+  background: #e0eafc;
+  background: linear-gradient(to right, #cfdef3, #c0d4fa);
+  box-shadow: 0px 1px 30px 1px #00000052;
+  width: 50%;
+  opacity: 100%;
+  border: 0.2px solid #353434;
+  color: #000000;
+}
+
+.btn-custom:active {
+  background: #ffffff;
+  background: linear-gradient(to right, #abbaab, #ffffff);
+}
+
+.save-note,
+.new-note {
+  transition: all 0.2s ease-out;
+}
+
+.save-note:hover,
+.new-note:hover {
+  font-size: 1.7rem;
+  filter: drop-shadow(3px 3px 50px #000000);
+}
+
+.delete-note {
+  transition: all 0.2s ease-out;
+}
+
+.delete-note:hover {
+  font-size: 1.3rem;
+  filter: drop-shadow(3px 3px 50px #000000);
 }
